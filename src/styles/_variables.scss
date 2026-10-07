@@ -1,0 +1,66 @@
+// Importação das Fontes Oficiais do Protótipo (Poppins, Outfit e Work Sans)
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Poppins:wght@300;400;500;600;700&family=Work+Sans:wght@400&display=swap');
+
+// Tipografia
+$font-primary: 'Poppins', sans-serif;
+$font-newsletter: 'Outfit', sans-serif;
+$font-footer-links: 'Work Sans', sans-serif;
+
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+// Cores Principais e Superfícies
+$color-yellow-primary: #F7CA11; // Logos, "50% Off", CTAs do hero, parceiros e inscrição
+$color-purple-dark: #271C47;   // Violeta dos logos, fundo da newsletter e texto dos CTAs amarelos
+$color-blue-accent: #3019B2;    // Destaques do cabeçalho, "Ofertas do dia" e categoria selecionada
+$color-blue-primary: #3442B5;   // Títulos de prateleiras/marcas, botão Comprar e tab selecionada
+$color-white: #FFFFFF;          // Fundo geral, cards, campos e círculos de marcas
+$color-bg-search: #F6F5F2;      // Fundo da barra de busca
+$color-bg-gray: #F4F4F4;        // Fundo de categorias não selecionadas e do rodapé
+$color-bg-checkbox: #F6F6F6;    // Fundo do checkbox
+
+// Textos e Ícones
+$color-text-dark: #3F3F40;      // Descrição de produto, preço atual, parcelamento e rodapé
+$color-text-muted: #9F9F9F;     // Navegação, ícones e placeholder do cabeçalho
+$color-text-category: #4E4E4E;  // Nomes das categorias
+$color-text-old-price: #808080; // Preço antigo riscado
+$color-text-tab-unselected: #3B3B3B; // Tabs não selecionadas
+$color-text-newsletter-ph: #676767;  // Placeholders da newsletter
+$color-text-btn-subscribe: #161615;  // Texto do botão Inscrever
+$color-text-footer-titles: rgba(34, 34, 34, 0.71); // Títulos e links das colunas do rodapé
+$color-icons-social: #4A4A4A;    // Ícones sociais
+
+// Bordas e Divisores
+$color-border-header: #F0F0F0;  // Divisórias do cabeçalho
+$color-border-title: #DEDEDE;   // Linhas ao lado dos títulos das prateleiras
+$color-border-tabs: #BDBDBD;    // Bordas das tabs
+$color-border-newsletter: #E7E7E7; // Bordas dos campos da newsletter
+$color-border-checkbox: #8C342B; // Borda do checkbox
+$color-border-footer: rgba(40, 40, 40, 0.18); // Divisor vertical do rodapé
+
+// Sombras
+$shadow-nav: 0 8px 16px 0 rgba(57, 48, 19, 0.12);
+$shadow-category: 0 4px 11px 0 rgba(0, 0, 0, 0.13);
+$shadow-category-selected: 0 2px 9px 0 rgba(0, 0, 0, 0.22);
+$shadow-card: 0 3px 19px 0 rgba(0, 0, 0, 0.22);
+$shadow-brand: 0 7px 20px 0 rgba(0, 0, 0, 0.13);
+$shadow-arrow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+// Raios de Borda (Border Radius)
+$radius-checkbox: 1px;
+$radius-buy-btn: 4px;
+$radius-view-product: 5px;
+$radius-confira: 6px;
+$radius-inputs: 8px;
+$radius-cards: 10px;
+$radius-banners: 20px;
+$radius-brands: 105.5px;
+
+// Breakpoints Responsivos (Mobile First)
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1280px;
