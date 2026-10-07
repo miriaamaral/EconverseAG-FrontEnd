@@ -1,5 +1,6 @@
 import { Header } from './components/Header/header';
 import { HeroBanner } from './components/HeroBanner/heroBanner';
+import { CategoryList } from './components/CategoryList/categoryList';
 import './styles/global.scss';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <main>
         <HeroBanner />
+        <CategoryList />
       </main>
     </div>
   );

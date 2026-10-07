@@ -1,0 +1,97 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.categorySection {
+  width: 100%;
+  padding: 34px 0 20px;
+}
+
+.categoryList {
+  @include flex-between;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 10px 4px 20px;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  @include mobile {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+}
+
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+
+    .iconBox {
+      border-color: $color-blue-accent;
+      box-shadow: $shadow-category-selected;
+    }
+
+    .categoryName {
+      color: $color-blue-accent;
+    }
+  }
+}
+
+.iconBox {
+  width: 128px;
+  height: 128px;
+  border-radius: 10px; 
+  background-color: $color-bg-gray; 
+  @include flex-center;
+  box-shadow: $shadow-category;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+
+  @include mobile {
+    width: 90px;
+    height: 90px;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+
+    @include mobile {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+.active {
+  .iconBox {
+    background-color: $color-white;
+    border-color: $color-blue-accent;
+    box-shadow: $shadow-category-selected;
+  }
+
+  .categoryName {
+    color: $color-blue-accent;
+    font-weight: $weight-bold;
+  }
+}
+
+.categoryName {
+  font-family: $font-primary;
+  font-size: 14px;
+  font-weight: $weight-medium;
+  color: $color-text-category;
+  text-align: center;
+  white-space: nowrap;
+}
