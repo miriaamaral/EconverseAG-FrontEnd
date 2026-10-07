@@ -1,0 +1,178 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.header {
+  width: 100%;
+  background-color: $color-white;
+  border-bottom: 1px solid $color-border-header;
+}
+
+.topBar {
+  width: 100%;
+  border-bottom: 1px solid $color-border-header;
+  padding: 8px 0;
+
+  .topBarContent {
+    @include flex-between;
+    justify-content: center;
+    gap: 40px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+
+  .benefitItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: $color-text-muted;
+
+    .iconSm {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    strong {
+      color: $color-blue-accent;
+    }
+  }
+}
+
+.mainHeader {
+  padding: 18px 0;
+
+  .mainContent {
+    @include flex-between;
+    gap: 24px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  .searchBar {
+    flex: 1;
+    max-width: 630px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      height: 48px;
+      padding: 0 48px 0 24px;
+      background-color: $color-bg-search;
+      border-radius: $radius-inputs;
+      font-size: 14px;
+      color: $color-text-dark;
+
+      &::placeholder {
+        color: $color-text-muted;
+      }
+
+      &:focus {
+        outline: 1px solid $color-blue-accent;
+      }
+    }
+
+    .searchButton {
+      position: absolute;
+      right: 16px;
+      @include flex-center;
+      cursor: pointer;
+
+      img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @include mobile {
+      justify-content: space-around;
+    }
+
+    .actionButton {
+      @include flex-center;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.navigation {
+  border-top: 1px solid $color-border-header;
+  box-shadow: $shadow-nav;
+
+  .navList {
+    @include flex-between;
+    padding: 12px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    @include mobile {
+      justify-content: flex-start;
+      gap: 20px;
+    }
+  }
+
+  .navLink {
+    font-size: 12px;
+    font-weight: $weight-semibold;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &:hover {
+      color: $color-blue-accent;
+    }
+
+    &.highlight {
+      color: $color-blue-accent;
+      font-weight: $weight-bold;
+    }
+
+    .crownIcon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+  }
+}
