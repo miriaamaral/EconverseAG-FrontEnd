@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useProducts } from './hooks/useProducts';
-import { Header } from './components/Header/header';
+import { Header } from './components/Header/Header';
 import { HeroBanner } from './components/HeroBanner/heroBanner';
 import { CategoryList } from './components/CategoryList/categoryList';
 import { ProductShowcase } from './components/ProductShowcase/productShowcase';
