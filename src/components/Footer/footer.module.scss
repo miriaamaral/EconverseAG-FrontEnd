@@ -1,0 +1,239 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  width: 100%;
+  font-family: $font-primary;
+}
+
+.newsletterBar {
+  width: 100%;
+  background-color: $color-purple-dark;
+  color: $color-white;
+  padding: 36px 0;
+}
+
+.newsletterContainer {
+  @include flex-between;
+  gap: 32px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+}
+
+.newsletterText {
+  text-align: left;
+  max-width: 420px;
+
+  h3 {
+    font-size: 22px;
+    font-weight: $weight-bold;
+    margin-bottom: 8px;
+
+    @include mobile {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: $weight-light;
+    line-height: 1.4;
+    opacity: 0.9;
+  }
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  max-width: 620px;
+}
+
+.inputsRow {
+  display: flex;
+  gap: 12px;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  input {
+    flex: 1;
+    height: 44px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 4px;
+    font-family: $font-primary;
+    font-size: 14px;
+    color: $color-text-dark;
+    background-color: $color-white;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+
+    &:focus {
+      outline: 2px solid $color-yellow-primary;
+    }
+  }
+
+  button {
+    height: 44px;
+    padding: 0 28px;
+    background-color: $color-yellow-primary;
+    color: $color-purple-dark;
+    font-family: $font-primary;
+    font-size: 14px;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: lighten($color-yellow-primary, 8%);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: $color-white;
+
+  input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    accent-color: $color-yellow-primary;
+    cursor: pointer;
+  }
+
+  label {
+    cursor: pointer;
+    font-weight: $weight-light;
+  }
+}
+
+.mainFooter {
+  width: 100%;
+  background-color: $color-bg-gray;
+  padding: 48px 0;
+  border-bottom: 1px solid $color-border-title;
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 40px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  border-right: 1px solid $color-border-title;
+  padding-right: 32px;
+
+  @include mobile {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .footerLogo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 16px;
+  }
+
+  .brandDescription {
+    font-size: 13px;
+    color: $color-text-dark;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  .socialIcons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.linksCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  .colTitle {
+    font-size: 14px;
+    font-weight: $weight-bold;
+    color: $color-text-dark;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    a {
+      font-size: 12px;
+      color: $color-text-dark;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-blue-primary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.bottomBar {
+  width: 100%;
+  background-color: $color-white;
+  padding: 20px 0;
+
+  .copyrightText {
+    font-size: 12px;
+    font-weight: $weight-light;
+    color: $color-text-muted;
+    text-align: center;
+  }
+}
