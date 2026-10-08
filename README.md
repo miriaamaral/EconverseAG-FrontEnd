@@ -1,8 +1,6 @@
-# 🛒 Teste Técnico Front-End: Econverse (React + TypeScript)
+# 🛒 Desafio Técnico Front-End — Econverse (React + TypeScript)
 
-Repositório dedicado ao desenvolvimento da Landing Page **e-commerce da Econverse**, como parte do processo seletivo para a vaga de Desenvolvedora Front-End.
-
-Aqui, construi uma aplicação web, **responsiva e de alta performance, consumindo a API oficial de produtos e aplicando conceitos avançados de arquitetura de componentes, tipagem estrita com TypeScript, SCSS modular e acessibilidade.**.
+Aplicação desenvolvida para o teste técnico da **Econverse**, focada na construção de um e-commerce responsivo, modular e de alto desempenho utilizando **React, TypeScript e SCSS Modules**.
 
 ---
 
@@ -11,6 +9,9 @@ Aqui, construi uma aplicação web, **responsiva e de alta performance, consumin
 Que tal dar uma olhada no projeto rodando ao vivo?
 👉 [Desafio Econverse Front-End no ar (Vercel)](https://econverse-ag-front-end.vercel.app/)
 
+- 🎨 **Figma de Referência:** [Layout Teste Front-End Jr](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1)
+
+
 <br>
 <div align="center">
     <img src="src/assets/screenshots/desktop-preview.png" alt="Preview da Landing Page Econverse no Desktop" width="800" style="border-radius: 8px; margin-bottom: 10px;">
@@ -18,6 +19,23 @@ Que tal dar uma olhada no projeto rodando ao vivo?
     <img src="src/assets/screenshots/mobile-preview.png" alt="Preview da Responsividade no mobile" width="200" style="border-radius: 8px; margin: 5px;">
 </div>
 <br>
+
+---
+
+## 🧠 Decisões Técnicas & Arquiteturais
+
+### 1. Parametrização e Reutilização de Componentes (Princípio DRY)
+Para evitar a duplicação de lógica e markup em seções repetidas da página, o componente `ProductShowcase` foi projetado com controle de renderização condicional via props:
+- `showTabs`: Ativa ou oculta a barra de categorias da vitrine.
+- `showSeeAll`: Alterna a exibição do gatilho visual "Ver todos".
+
+### 2. Tratamento do Layout e Prevenção de Reflow
+- **Trancamento da Caixa de Título:** Para lidar com descrições de produtos de comprimentos variáveis sem desalinhar os botões de ação na base dos cards, foi aplicada a limitação de 2 linhas via `line-clamp: 2` combinada a uma altura fixa de `38px`.
+- **Cálculo Preciso da Prateleira:** Largura dos cards configurada dinamicamente com `calc((100% - 60px) / 4)`, garantindo que 4 cards completos sejam renderizados lado a lado no desktop sem cortes visuais.
+
+### 3. Consumo de API e Contorno de CORS
+- Isolamento do consumo de dados em um Custom Hook (`useProducts`).
+- Configuração de reescrita de rotas (*Proxy*) para desenvolvimento e produção, evitando o bloqueio por política *Same-Origin* do navegador ao consultar os endpoints da Econverse.
 
 ---
 
@@ -51,31 +69,12 @@ Que tal dar uma olhada no projeto rodando ao vivo?
 
 ## 🎯 Checklist de Requisitos do Teste Econverse
 
-- [x] **React + TypeScript:** Desenvolvido com componentes funcionais e tipagem estrita de objetos.
+- [x] **React + TypeScript:** Tipagem estrita para dados de produto e respostas da API.
+- [x] **SCSS (Sass Modules):** Estilização modularizada e escopada, sem vazamento de CSS global.
+- [x] **Sem Bibliotecas de UI:** Carrossel e modais desenvolvidos com recursos nativos do React e SCSS.
+- [x] **Fidelidade ao Figma:** Respeitadas cores, fontes, alinhamentos à esquerda e ativos visuais originais.
+- [x] **HTML Semântico & Acessibilidade:** Uso de tags semânticas, suporte à tecla `ESC` no modal e bloqueio de propagação de eventos no backdrop.
 
-- [x] **Consumo de API JSON:** Dados dinâmicos carregados via Custom Hook `useProducts`.
-
-- [x] **Modal Interativo:** Pop-up de detalhes com preço formatado e seletor numérico de quantidade ao clicar em "Comprar" ou no card.
-
-- [x] **Pré-processador SCSS:** Uso completo de SCSS sem vazamento de escopo visual.
-
-- [x] **Pixel-Perfect do Figma:** Respeitadas cores, fontes, alinhamento à esquerda, botões e setas personalizadas em vetores.
-
-- [x] **Sem Bibliotecas de UI:** Zero uso de Bootstrap, Tailwind ou bibliotecas de componentes prontas — carrossel e modal desenvolvidos do zero com React e SCSS nativos.
-
-- [x] **Boas Práticas de SEO & HTML Semântico (Ponto Extra):** Estruturação com `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`, além de atributos `alt` e hierarquia correta de headings (`h1`-`h3`).
-
----
-
-## 🧠 Decisões Técnicas & Arquiteturais
-
-* **Parametrização do `ProductShowcase` (Princípio DRY):** Para evitar duplicação de código ao longo das 3 vitrines da página, o componente foi configurado com props opcionais (`showTabs` e `showSeeAll`), permitindo reuso inteligente da estrutura e do carrossel.
-
-* **Isolamento de Lógica com Custom Hook (`useProducts`):** Toda a regra de requisição HTTP, gerenciamento de estados (`loading`, `error`) e manipulação do retorno da API foram abstraídos do visual e centralizados no hook customizado.
-
-* **Configuração de Proxy para Solução de CORS:** Para solucionar o bloqueio de política *Same-Origin* do navegador ao chamar a API em desenvolvimento local, foi implementada a reescrita de rotas com proxy no Vite (`/api-econverse`).
-
-* **Design Acessível e Defensivo no Modal:** O modal inclui `stopPropagation` no container central para evitar fechamento acidental ao interagir com a tela, além de listener de teclado global para a tecla `Escape`.
 
 ---
 
