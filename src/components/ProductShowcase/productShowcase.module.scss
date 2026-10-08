@@ -140,3 +140,22 @@
   font-size: 16px;
   color: $color-text-muted;
 }
+
+.seeAllContainer {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.seeAllLink {
+  font-family: $font-primary;
+  font-size: 15px;
+  font-weight: $weight-bold;
+  color: $color-text-dark;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+}

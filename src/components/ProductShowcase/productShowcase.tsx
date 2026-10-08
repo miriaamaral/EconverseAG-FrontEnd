@@ -18,10 +18,16 @@ const CATEGORY_TABS = [
 
 interface ProductShowcaseProps {
   onSelectProduct: (product: Product) => void;
+  title?: string;
+  showTabs?: boolean;
+  showSeeAll?: boolean;
 }
 
 export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   onSelectProduct,
+  title = 'Produtos relacionados',
+  showTabs = true,
+  showSeeAll = false,
 }) => {
   const { products, loading, error } = useProducts();
   const [activeTab, setActiveTab] = useState('CELULARES');
@@ -38,31 +44,42 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   };
 
   return (
-    <section className={styles.showcaseSection} aria-label="Vitrine de Produtos">
+    <section className={styles.showcaseSection} aria-label={title}>
       <div className="container">
         {/* Título com Linhas Divisórias */}
         <div className={styles.titleContainer}>
           <div className={styles.line} />
-          <h2 className={styles.title}>Produtos relacionados</h2>
+          <h2 className={styles.title}>{title}</h2>
           <div className={styles.line} />
         </div>
 
-        {/* Abas de Navegação / Filtros */}
-        <ul className={styles.tabsList}>
-          {CATEGORY_TABS.map((tab) => (
-            <li key={tab}>
-              <button
-                type="button"
-                className={`${styles.tabButton} ${
-                  activeTab === tab ? styles.active : ''
-                }`}
-                onClick={() => setActiveTab(tab)}
-              >
-                {tab}
-              </button>
-            </li>
-          ))}
-        </ul>
+        {/* Exibe "Ver todos" quando showSeeAll for true */}
+        {showSeeAll && (
+          <div className={styles.seeAllContainer}>
+            <a href="#ver-todos" className={styles.seeAllLink}>
+              Ver todos
+            </a>
+          </div>
+        )}
+
+        {/* Exibe as Abas apenas se showTabs for true */}
+        {showTabs && (
+          <ul className={styles.tabsList}>
+            {CATEGORY_TABS.map((tab) => (
+              <li key={tab}>
+                <button
+                  type="button"
+                  className={`${styles.tabButton} ${
+                    activeTab === tab ? styles.active : ''
+                  }`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Estados da API */}
         {loading && (
@@ -71,7 +88,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
         {error && <div className={styles.errorState}>{error}</div>}
 
-        {/* Carrossel de Produtos */}
+        {/* Carrossel de Produtos Reutilizado */}
         {!loading && !error && products.length > 0 && (
           <div className={styles.carouselWrapper}>
             <button
