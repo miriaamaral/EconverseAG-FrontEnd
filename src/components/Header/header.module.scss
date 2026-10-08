@@ -10,7 +10,7 @@
 .topBar {
   width: 100%;
   border-bottom: 1px solid $color-border-header;
-  padding: 8px 0;
+  padding: 6px 0;
 
   .topBarContent {
     @include flex-between;
@@ -18,26 +18,44 @@
     gap: 40px;
 
     @include mobile {
-      flex-direction: column;
-      gap: 6px;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 12px;
+      padding: 0 8px;
     }
   }
 
   .benefitItem {
     display: flex;
     align-items: center;
-    gap: 8px;
+    line-height: 1;
+    gap: 6px;
     font-size: 12px;
     color: $color-text-muted;
+
+    @include mobile {
+      font-size: 0;
+      gap: 4px;
+    }
 
     .iconSm {
       width: 20px;
       height: 20px;
       object-fit: contain;
+
+      @include mobile {
+        width: 14px;
+        height: 14px;
+      }
     }
 
     strong {
       color: $color-blue-accent;
+
+      @include mobile {
+        font-size: 11px;
+        white-space: nowrap;
+      }
     }
   }
 }

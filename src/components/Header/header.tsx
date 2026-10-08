@@ -64,7 +64,7 @@ export const Header: React.FC = () => {
             <div className={styles.searchBar}>
               <input
                 type="text"
-                placeholder="O que você está procurando?"
+                placeholder="O que você está buscando?"
                 aria-label="Campo de busca de produtos"
               />
               <button

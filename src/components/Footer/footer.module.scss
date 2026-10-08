@@ -136,8 +136,8 @@
   gap: 40px;
 
   @include mobile {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 12px;
   }
 }
 
@@ -150,8 +150,11 @@
   padding-right: 32px;
 
   @include mobile {
+    grid-column: 1 / -1; 
     border-right: none;
     padding-right: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color-border-title;
   }
 
   .footerLogo {
@@ -171,18 +174,18 @@
 
   .socialIcons {
     display: flex;
-    gap: 16px;
+    flex-direction: row; 
     align-items: center;
+    gap: 16px;
+
+    @include mobile {
+      gap: 16px;
+    }
 
     a {
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-      }
 
       img {
         width: 24px;
@@ -200,26 +203,35 @@
   text-align: left;
 
   .colTitle {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: $weight-bold;
-    color: $color-text-dark;
-    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: $color-purple-dark;
+    margin-bottom: 20px;
+
+    @include mobile {
+      font-size: 12px;      
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
   }
 
   ul {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 12px;
+
+    @include mobile {
+      gap: 3px;
+    }
 
     a {
-      font-size: 12px;
+      font-size: 13px;
       color: $color-text-dark;
       text-decoration: none;
-      transition: color 0.2s ease;
 
-      &:hover {
-        color: $color-blue-primary;
-        text-decoration: underline;
+      @include mobile {
+        font-size: 8px;
       }
     }
   }
