@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { useProducts } from "../../hooks/useProducts";
 import { ProductCard } from "../ProductCard/productCard";
 import type { Product } from "../../models/product.model";
 import styles from "./ProductShowcase.module.scss";
@@ -16,6 +15,9 @@ const CATEGORY_TABS = [
 ];
 
 interface ProductShowcaseProps {
+  products: Product[];
+  loading: boolean;
+  error: string | null;
   onSelectProduct: (product: Product) => void;
   title?: string;
   showTabs?: boolean;
@@ -23,12 +25,14 @@ interface ProductShowcaseProps {
 }
 
 export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
+  products,
+  loading,
+  error,
   onSelectProduct,
   title = "Produtos relacionados",
   showTabs = true,
   showSeeAll = false,
 }) => {
-  const { products, loading, error } = useProducts();
   const [activeTab, setActiveTab] = useState("CELULARES");
   const carouselRef = useRef<HTMLDivElement>(null);
 
