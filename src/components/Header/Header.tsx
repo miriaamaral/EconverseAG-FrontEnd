@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./header.module.scss";
+import styles from "./Header.module.scss";
 import logoImg from "../../assets/img/logo.png";
 import seloIcon from "../../assets/icons/selo-verificacao.png";
 import entregasIcon from "../../assets/icons/entregas.png";

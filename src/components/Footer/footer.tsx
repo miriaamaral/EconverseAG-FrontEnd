@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./footer.module.scss";
+import styles from "./Footer.module.scss";
 import logoImg from "../../assets/img/logo.png";
 import instagramIcon from "../../assets/icons/instagram.png";
 import facebookIcon from "../../assets/icons/facebook.png";
