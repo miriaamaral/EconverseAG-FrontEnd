@@ -1,13 +1,15 @@
-import React from 'react';
-import styles from './PartnerBanners.module.scss';
-import partnerBgImg from '../../assets/img/background-card-parceiros.png';
+import React from "react";
+import styles from "./PartnerBanners.module.scss";
+import partnerBgImg from "../../assets/img/background-card-parceiros.png";
 
 export const PartnerBanners: React.FC = () => {
   return (
-    <section className={styles.partnerSection} aria-label="Banners de Parceiros">
+    <section
+      className={styles.partnerSection}
+      aria-label="Banners de Parceiros"
+    >
       <div className="container">
         <div className={styles.bannersGrid}>
-          {/* Banner 1 */}
           <div
             className={styles.partnerCard}
             style={{ backgroundImage: `url(${partnerBgImg})` }}
@@ -23,7 +25,6 @@ export const PartnerBanners: React.FC = () => {
             </div>
           </div>
 
-          {/* Banner 2 */}
           <div
             className={styles.partnerCard}
             style={{ backgroundImage: `url(${partnerBgImg})` }}

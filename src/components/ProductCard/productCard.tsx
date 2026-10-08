@@ -1,11 +1,11 @@
-import React from 'react';
-import type { Product } from '../../models/product.model';
+import React from "react";
+import type { Product } from "../../models/product.model";
 import {
   formatCurrency,
   calculateOldPrice,
   formatInstallments,
-} from '../../utils/formatters';
-import styles from './ProductCard.module.scss';
+} from "../../utils/formatters";
+import styles from "./ProductCard.module.scss";
 
 interface ProductCardProps {
   product: Product;
@@ -33,14 +33,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         <p className={styles.oldPrice}>{formatCurrency(oldPrice)}</p>
         <p className={styles.currentPrice}>{formatCurrency(product.price)}</p>
-        <p className={styles.installments}>{formatInstallments(product.price)}</p>
+        <p className={styles.installments}>
+          {formatInstallments(product.price)}
+        </p>
         <p className={styles.freeShipping}>Frete grátis</p>
 
         <button
           type="button"
           className={styles.buyButton}
           onClick={(e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             onSelectProduct(product);
           }}
         >

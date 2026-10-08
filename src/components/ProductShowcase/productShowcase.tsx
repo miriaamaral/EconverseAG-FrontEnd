@@ -1,19 +1,18 @@
-import React, { useRef, useState } from 'react';
-import { useProducts } from '../../hooks/useProducts';
-import { ProductCard } from '../ProductCard/productCard';
-import type { Product } from '../../models/product.model';
-import styles from './ProductShowcase.module.scss';
-
-import vetorEsquerdo from '../../assets/icons/vetor-esquerdo.png';
-import vetorDireito from '../../assets/icons/vetor-direito.png';
+import React, { useRef, useState } from "react";
+import { useProducts } from "../../hooks/useProducts";
+import { ProductCard } from "../ProductCard/productCard";
+import type { Product } from "../../models/product.model";
+import styles from "./ProductShowcase.module.scss";
+import vetorEsquerdo from "../../assets/icons/vetor-esquerdo.png";
+import vetorDireito from "../../assets/icons/vetor-direito.png";
 
 const CATEGORY_TABS = [
-  'CELULARES',
-  'ACESSÓRIOS',
-  'TABLETS',
-  'NOTEBOOKS',
-  'TVS',
-  'VER TODOS',
+  "CELULARES",
+  "ACESSÓRIOS",
+  "TABLETS",
+  "NOTEBOOKS",
+  "TVS",
+  "VER TODOS",
 ];
 
 interface ProductShowcaseProps {
@@ -25,20 +24,20 @@ interface ProductShowcaseProps {
 
 export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   onSelectProduct,
-  title = 'Produtos relacionados',
+  title = "Produtos relacionados",
   showTabs = true,
   showSeeAll = false,
 }) => {
   const { products, loading, error } = useProducts();
-  const [activeTab, setActiveTab] = useState('CELULARES');
+  const [activeTab, setActiveTab] = useState("CELULARES");
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = (direction: 'left' | 'right') => {
+  const handleScroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
       const scrollAmount = carouselRef.current.clientWidth;
       carouselRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
       });
     }
   };
@@ -46,14 +45,12 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   return (
     <section className={styles.showcaseSection} aria-label={title}>
       <div className="container">
-        {/* Título com Linhas Divisórias */}
         <div className={styles.titleContainer}>
           <div className={styles.line} />
           <h2 className={styles.title}>{title}</h2>
           <div className={styles.line} />
         </div>
 
-        {/* Exibe "Ver todos" quando showSeeAll for true */}
         {showSeeAll && (
           <div className={styles.seeAllContainer}>
             <a href="#ver-todos" className={styles.seeAllLink}>
@@ -62,7 +59,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           </div>
         )}
 
-        {/* Exibe as Abas apenas se showTabs for true */}
         {showTabs && (
           <ul className={styles.tabsList}>
             {CATEGORY_TABS.map((tab) => (
@@ -70,7 +66,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 <button
                   type="button"
                   className={`${styles.tabButton} ${
-                    activeTab === tab ? styles.active : ''
+                    activeTab === tab ? styles.active : ""
                   }`}
                   onClick={() => setActiveTab(tab)}
                 >
@@ -81,20 +77,18 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           </ul>
         )}
 
-        {/* Estados da API */}
         {loading && (
           <div className={styles.loadingState}>Carregando produtos...</div>
         )}
 
         {error && <div className={styles.errorState}>{error}</div>}
 
-        {/* Carrossel de Produtos Reutilizado */}
         {!loading && !error && products.length > 0 && (
           <div className={styles.carouselWrapper}>
             <button
               type="button"
               className={`${styles.arrowButton} ${styles.prev}`}
-              onClick={() => handleScroll('left')}
+              onClick={() => handleScroll("left")}
               aria-label="Anterior"
             >
               <img src={vetorEsquerdo} alt="Anterior" />
@@ -113,7 +107,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             <button
               type="button"
               className={`${styles.arrowButton} ${styles.next}`}
-              onClick={() => handleScroll('right')}
+              onClick={() => handleScroll("right")}
               aria-label="Próximo"
             >
               <img src={vetorDireito} alt="Próximo" />

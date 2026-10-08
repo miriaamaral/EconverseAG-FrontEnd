@@ -1,7 +1,6 @@
-import React from 'react';
-import styles from './HeroBanner.module.scss';
-
-import heroBannerImg from '../../assets/img/hero-banner.jpeg';
+import React from "react";
+import styles from "./HeroBanner.module.scss";
+import heroBannerImg from "../../assets/img/hero-banner.jpeg";
 
 export const HeroBanner: React.FC = () => {
   return (
@@ -14,7 +13,8 @@ export const HeroBanner: React.FC = () => {
         <div className="container">
           <div className={styles.content}>
             <h1 className={styles.title}>
-              Venha conhecer nossas<br />
+              Venha conhecer nossas
+              <br />
               promoções
             </h1>
             <p className={styles.subtitle}>

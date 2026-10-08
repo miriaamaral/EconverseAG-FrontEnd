@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import type { Product } from '../../models/product.model';
-import { formatCurrency } from '../../utils/formatters';
-import styles from './ProductModal.module.scss';
+import React, { useState, useEffect } from "react";
+import type { Product } from "../../models/product.model";
+import { formatCurrency } from "../../utils/formatters";
+import styles from "./ProductModal.module.scss";
 
 interface ProductModalProps {
   product: Product | null;
   onClose: () => void;
 }
 
-export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
+export const ProductModal: React.FC<ProductModalProps> = ({
+  product,
+  onClose,
+}) => {
   const [quantity, setQuantity] = useState<number>(1);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         onClose();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
   if (!product) return null;
@@ -46,7 +49,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
         className={styles.modalContainer}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Botão Fechar (X) */}
         <button
           type="button"
           className={styles.closeButton}
@@ -56,35 +58,42 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
           &times;
         </button>
 
-        {/* Lado Esquerdo: Imagem */}
         <div className={styles.imageSection}>
           <img src={product.photo} alt={product.productName} />
         </div>
 
-        {/* Lado Direito: Informações */}
         <div className={styles.infoSection}>
           <div>
             <h2 id="modal-product-title" className={styles.productTitle}>
               {product.productName}
             </h2>
-            <p className={styles.productPrice}>{formatCurrency(product.price)}</p>
+            <p className={styles.productPrice}>
+              {formatCurrency(product.price)}
+            </p>
             <p className={styles.productDescription}>
               {product.descriptionShort ||
-                'Many desktop publishing packages and web page editors now use Many desktop publishing packages and web page editors now use.'}
+                "Many desktop publishing packages and web page editors now use Many desktop publishing packages and web page editors now use."}
             </p>
             <a href="#detalhes" className={styles.moreDetailsLink}>
               Veja mais detalhes do produto &gt;
             </a>
           </div>
 
-          {/* Controles: Quantidade + Comprar */}
           <div className={styles.actionsRow}>
             <div className={styles.quantitySelector}>
-              <button type="button" onClick={handleDecrease} aria-label="Diminuir quantidade">
+              <button
+                type="button"
+                onClick={handleDecrease}
+                aria-label="Diminuir quantidade"
+              >
                 -
               </button>
-              <span>{String(quantity).padStart(2, '0')}</span>
-              <button type="button" onClick={handleIncrease} aria-label="Aumentar quantidade">
+              <span>{String(quantity).padStart(2, "0")}</span>
+              <button
+                type="button"
+                onClick={handleIncrease}
+                aria-label="Aumentar quantidade"
+              >
                 +
               </button>
             </div>
@@ -93,7 +102,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               type="button"
               className={styles.buyButton}
               onClick={() => {
-                alert(`Produto "${product.productName}" (${quantity}x) adicionado ao carrinho!`);
+                alert(
+                  `Produto "${product.productName}" (${quantity}x) adicionado ao carrinho!`,
+                );
                 onClose();
               }}
             >
