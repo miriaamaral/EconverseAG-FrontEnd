@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BrandShowcase.module.scss';
+import styles from './brandShowcase.module.scss';
 import brandLogo from '../../assets/img/logo.png';
 
 const BRANDS = [1, 2, 3, 4, 5];

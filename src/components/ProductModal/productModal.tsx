@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { Product } from "../../models/product.model";
 import { formatCurrency } from "../../utils/formatters";
-import styles from "./ProductModal.module.scss";
+import styles from "./productModal.module.scss";
 
 interface ProductModalProps {
   product: Product | null;

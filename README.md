@@ -19,6 +19,12 @@ Que tal dar uma olhada no projeto rodando ao vivo?
     <img src="src/assets/screenshots/mobile-preview.png" alt="Preview da Responsividade no mobile" width="200" style="border-radius: 8px; margin: 5px;">
 </div>
 <br>
+<div align="center">
+    <img src="src/assets/screenshots/mobile-preview-seq1.png" alt="Preview da Responsividade no mobile seção do cabeçalho e banner" width="200" style="border-radius: 8px; margin: 5px;">
+    <img src="src/assets/screenshots/mobile-preview-seq2.png" alt="Preview da Responsividade no mobile seção de carossel com produtos relacionados" width="200" style="border-radius: 8px; margin: 5px;">
+    <img src="src/assets/screenshots/mobile-preview-seq3.png" alt="Preview da Responsividade no mobile seção de parceiros e marcas de produtos" width="200" style="border-radius: 8px; margin: 5px;">
+    <img src="src/assets/screenshots/mobile-preview-seq4.png" alt="Preview da Responsividade no mobile seção de formulario e rodapé" width="200" style="border-radius: 8px; margin: 5px;">
+</div>
 
 ---
 

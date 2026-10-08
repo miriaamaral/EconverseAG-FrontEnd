@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./PartnerBanners.module.scss";
+import styles from "./partnerBanners.module.scss";
 import partnerBgImg from "../../assets/img/background-card-parceiros.png";
 
 export const PartnerBanners: React.FC = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './CategoryList.module.scss';
+import styles from './categoryList.module.scss';
 import tecnologiaIcon from '../../assets/icons/tecnologia.png';
 import supermercadoIcon from '../../assets/icons/supermercado.png';
 import bebidasIcon from '../../assets/icons/bebidas.png';

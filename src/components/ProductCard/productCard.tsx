@@ -5,7 +5,7 @@ import {
   calculateOldPrice,
   formatInstallments,
 } from "../../utils/formatters";
-import styles from "./ProductCard.module.scss";
+import styles from "./productCard.module.scss";
 
 interface ProductCardProps {
   product: Product;

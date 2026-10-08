@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { ProductCard } from "../ProductCard/productCard";
 import type { Product } from "../../models/product.model";
-import styles from "./ProductShowcase.module.scss";
+import styles from "./productShowcase.module.scss";
 import vetorEsquerdo from "../../assets/icons/vetor-esquerdo.png";
 import vetorDireito from "../../assets/icons/vetor-direito.png";
 
