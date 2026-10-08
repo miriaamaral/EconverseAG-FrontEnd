@@ -1,0 +1,110 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.partnerSection {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.bannersGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.partnerCard {
+  position: relative;
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+
+  @include mobile {
+    height: 280px;
+    padding: 24px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
+  }
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 240px;
+
+  .title {
+    font-family: $font-primary;
+    font-size: 40px;
+    font-weight: $weight-bold;
+    color: $color-white;
+    margin-bottom: 8px;
+    line-height: 1.1;
+
+    @include mobile {
+      font-size: 28px;
+    }
+  }
+
+  .description {
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: $weight-regular;
+    color: $color-white;
+    margin-bottom: 24px;
+    line-height: 1.3;
+
+    @include mobile {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .actionButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    background-color: $color-yellow-primary;
+    color: $color-purple-dark;
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: lighten($color-yellow-primary, 8%);
+      transform: translateY(-2px);
+    }
+  }
+}
