@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { Product, ProductsApiResponse } from '../models/product.model';
 
-const API_URL = 'https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
+const API_URL = '/api-econverse/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
 
 export const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);

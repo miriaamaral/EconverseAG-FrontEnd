@@ -1,0 +1,142 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.showcaseSection {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.titleContainer {
+  @include flex-center;
+  gap: 24px;
+  margin-bottom: 24px;
+
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: $color-border-title;
+  }
+
+  .title {
+    font-family: $font-primary;
+    font-size: 30px;
+    font-weight: $weight-bold;
+    color: $color-blue-primary;
+    white-space: nowrap;
+
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+}
+
+.tabsList {
+  @include flex-center;
+  gap: 16px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  @include mobile {
+    justify-content: flex-start;
+  }
+}
+
+.tabButton {
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: $weight-regular;
+  color: $color-text-tab-unselected;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border: 1px solid $color-border-tabs;
+  background-color: $color-white;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    color: $color-blue-primary;
+    border-color: $color-blue-primary;
+    font-weight: $weight-bold;
+  }
+}
+
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  @include flex-center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &.prev {
+    left: -20px;
+
+    @include mobile {
+      left: 0;
+    }
+  }
+
+  &.next {
+    right: -20px;
+
+    @include mobile {
+      right: 0;
+    }
+  }
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 12px 4px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.loadingState,
+.errorState {
+  width: 100%;
+  padding: 60px 0;
+  text-align: center;
+  font-family: $font-primary;
+  font-size: 16px;
+  color: $color-text-muted;
+}

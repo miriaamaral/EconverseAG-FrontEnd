@@ -1,0 +1,109 @@
+import React, { useRef, useState } from 'react';
+import { useProducts } from '../../hooks/useProducts';
+import { ProductCard } from '../ProductCard/productCard';
+import type { Product } from '../../models/product.model';
+import styles from './ProductShowcase.module.scss';
+
+import vetorEsquerdo from '../../assets/icons/vetor-esquerdo.png';
+import vetorDireito from '../../assets/icons/vetor-direito.png';
+
+const CATEGORY_TABS = [
+  'CELULARES',
+  'ACESSÓRIOS',
+  'TABLETS',
+  'NOTEBOOKS',
+  'TVS',
+  'VER TODOS',
+];
+
+interface ProductShowcaseProps {
+  onSelectProduct: (product: Product) => void;
+}
+
+export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
+  onSelectProduct,
+}) => {
+  const { products, loading, error } = useProducts();
+  const [activeTab, setActiveTab] = useState('CELULARES');
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = carouselRef.current.clientWidth;
+      carouselRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  return (
+    <section className={styles.showcaseSection} aria-label="Vitrine de Produtos">
+      <div className="container">
+        {/* Título com Linhas Divisórias */}
+        <div className={styles.titleContainer}>
+          <div className={styles.line} />
+          <h2 className={styles.title}>Produtos relacionados</h2>
+          <div className={styles.line} />
+        </div>
+
+        {/* Abas de Navegação / Filtros */}
+        <ul className={styles.tabsList}>
+          {CATEGORY_TABS.map((tab) => (
+            <li key={tab}>
+              <button
+                type="button"
+                className={`${styles.tabButton} ${
+                  activeTab === tab ? styles.active : ''
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        {/* Estados da API */}
+        {loading && (
+          <div className={styles.loadingState}>Carregando produtos...</div>
+        )}
+
+        {error && <div className={styles.errorState}>{error}</div>}
+
+        {/* Carrossel de Produtos */}
+        {!loading && !error && products.length > 0 && (
+          <div className={styles.carouselWrapper}>
+            <button
+              type="button"
+              className={`${styles.arrowButton} ${styles.prev}`}
+              onClick={() => handleScroll('left')}
+              aria-label="Anterior"
+            >
+              <img src={vetorEsquerdo} alt="Anterior" />
+            </button>
+
+            <div className={styles.cardsContainer} ref={carouselRef}>
+              {products.map((product, index) => (
+                <ProductCard
+                  key={`${product.productName}-${index}`}
+                  product={product}
+                  onSelectProduct={onSelectProduct}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className={`${styles.arrowButton} ${styles.next}`}
+              onClick={() => handleScroll('right')}
+              aria-label="Próximo"
+            >
+              <img src={vetorDireito} alt="Próximo" />
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};

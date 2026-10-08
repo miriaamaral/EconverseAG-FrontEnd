@@ -1,0 +1,121 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.card {
+  width: calc((100% - 60px) / 4);
+  min-width: 250px;
+  height: 500px;
+  background-color: $color-white;
+  border-radius: $radius-cards;
+  box-shadow: $shadow-card;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  @include mobile {
+    width: 260px;
+    min-width: 260px;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  height: 180px;
+  @include flex-center;
+  margin-bottom: 12px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;        
+  flex: 1;
+}
+
+.title {
+  font-family: $font-primary;
+  font-size: 14px;
+  font-weight: $weight-light;
+  color: $color-text-dark;
+  line-height: 1.35;
+  height: 38px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  text-align: left;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.oldPrice {
+  font-family: $font-primary;
+  font-size: 14px;
+  color: $color-text-old-price;
+  text-decoration: line-through;
+  height: 18px;
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+.currentPrice {
+  font-family: $font-primary;
+  font-size: 20px;
+  font-weight: $weight-bold;
+  color: $color-text-dark;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.installments {
+  font-family: $font-primary;
+  font-size: 12px;
+  color: $color-text-dark;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.freeShipping {
+  font-family: $font-primary;
+  font-size: 12px;
+  font-weight: $weight-bold;
+  color: $color-blue-primary;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.buyButton {
+  width: 100%;
+  height: 44px;
+  background-color: $color-blue-primary;
+  color: $color-white;
+  font-family: $font-primary;
+  font-size: 14px;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  border-radius: $radius-buy-btn;
+  transition: background-color 0.2s ease;
+  @include flex-center;
+  margin-top: auto;
+
+  &:hover {
+    background-color: darken($color-blue-primary, 8%);
+  }
+}
