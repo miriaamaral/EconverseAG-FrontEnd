@@ -7,7 +7,7 @@ Aplicação desenvolvida para o teste técnico da **Econverse**, focada na const
 ## 🎥 Veja o Projeto em Ação!
 
 Que tal dar uma olhada no projeto rodando ao vivo?
-👉 [Desafio Econverse Front-End no ar (Vercel)](https://econverse-ag-front-end.vercel.app/)
+👉 [Desafio Econverse Front-End no ar (Vercel)](https://econverseag-frontend.vercel.app/)
 
 - 🎨 **Figma de Referência:** [Layout Teste Front-End Jr](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1)
 
